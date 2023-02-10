@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Business Card</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courgette&display=swap" rel="stylesheet">
+<style>
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  //background-color: #555;
+  color: #fff;
+  color: black;
+  border: solid 2px black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 105px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 20px;
+ font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+#myTooltipEmail{margin-left: 178px;}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+ 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---- Scroll Bar ---- */
+/* width */
+::-webkit-scrollbar {
+width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: black;
+ 
+  border-radius: 0px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+border-radius: 0px;
+background: #f6e286;
+}
+
+body{
+  background: tan;
+  overflow-x: hidden;
+  padding: 0px; margin: 0px;
+}
+
+section{
+  
+  
+/*   background-image: url('https://media2.fdncms.com/sevendaysvt/imager/u/original/22169575/lawenforcement1-1.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -10px;
+  padding-top: 150px;
+  margin: 0px;
+  //border: solid black;
+  height: 600px;
+}
+
+a{text-decoration: none; color: blue;}
+a:hover{ cursor: pointer; color: #006ee6;}
+
+.card-wrapper, .card, .card-back, .card-more, h4{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  user-select: none;
+}
+
+
+.card-wrapper{
+  margin-bottom: 50px;
+
+}
+.card, .card-back, .card-more{
+  display: block;
+  border: solid black;
+  background: #f6e286;
+  background: #f6e286;
+  text-align: center;
+   width: 800px;
+   height: 400px;
+   padding: 20px;  
+}
+
+#flipcard{border-radius: 10px;}
+ 
+  .card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.card-back{
+/*   display: flex;
+  flex-wrap: wrap;
+  justify-content: center; */
+  font-weight: bold;
+  background: #f6e286;
+  font-size: 20px;
+  
+}
+
+.card-more > .card-more-inner{
+  background: white;
+  width: auto;
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px;
+  border: solid black;
+  line-height: 25px;
+}
+
+ b{
+/*    border: 2px solid black;  */
+   text-decoration: underline 2px;
+   padding: 5px;
+   font-size: 120%;
+}
+
+li{font-style: italic;}
+
+
+img{ position: absolute; width: 51%;}
+h1, h2{
+  position: absolute;
+
+}
+
+h1{ 
+  font-size: 50px;
+  margin-top: 0px;
+  font-weight: bold;
+  font-family: 'Courgette', cursive;}
+
+h2{font-size: 30px;
+   margin-top: 55px;
+ font-family: 'Courgette', cursive;}
+
+
+h3{ position: absolute; font-weight: bold; font-size: 60px; margin-top: 170px; margin-bottom: 0px; font-family: 'Anton', sans-serif; float:left; margin-left: 90px;}
+
+
+h4{
+  
+  width: auto;
+  font-weight: bold;
+  font-family: 'Anton', Arial;
+  padding: 10px;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  font-size: 40px;
+  margin-top: 340px;
+  margin-left: 130px;
+}
+
+h5{ margin-bottom: 10px; margin-top: 10px; font-size: 30px; font-family: 'Courgette', cursive;}
+/* h5 > a{user-select: text;} */
+.h6{position: absolute; width: auto; font-size:15px;}
+.show > .h6 > a{color: #f6e286;}
+.show > .h6 > a:hover{color: black;}
+.show{height: 30px; width: 400px; margin-top: 130px;  display: block; position: absolute; color:#f6e286;}
+.show:hover{color: black; cursor: pointer;}
+
+/* @media (max-width: 950px){ secton{display: block;} } */
+/* @media (min-width: 550px){
+  
+   section-bottom{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;}
+  
+  section-bottom > .card-back, section-bottom > .card, section-bottom >.card-more{
+  width: 70%;
+  height: auto;
+ margin: auto;} */
+  
+  
+  /* FLIP CARD*/
+
+  .card-inner {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  transition: transform 0.6s;
+    //transition: all .3s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: 5px 5px 5px rgba(68,68,68,0.6);}
+
+  .card-inner > .card {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;}
+  
+.card-inner > .card-back{
+  position: absolute;
+ transform: rotateY(180deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-wrapper:hover .card-inner{
+  transition: transform 0.8s;
+   transform: perspective(1000px) rotateY(180deg) rotateX(0deg)
+          rotateZ(0deg);
+}} 
+
+
+.card-back{transform:rotateY(-180deg)}
+/* section bottom */
+@media(max-width: 910px){
+  
+  .card-wrapper{margin-top: 20px; padding: 0px;}
+ .card-inner{margin-top: 20px;  max-width: 280px; max-height: 150px;display: flex; flex-wrap: wrap; justify-content: center;}
+.card, .card-back{
+     max-width: 280px;
+    max-height: 150px;
+    display: block;
+    align-items: center;
+    margin: auto;
+  }
+  
+  h5{font-size: 20px; margin-bottom: 0px;}
+  #h5contact{margin-top: -20px;}
+  #h5address{margin-top: -30px;}
+  
+  .card{background-image: url('https://i.imgur.com/TNp81ef.png'); background-size: 110%; background-position: center; background-repeat: no-repeat;}
+img, h1, h2, h3, h4, #myTooltipEmail, #myTooltip {display: none;}
+
+}
+
+  
+  
+   /* ---- Section ---- */
+  
+
+  
+  /* Phone size */
+  @media (max-width: 950px){
+    .card-more-inner{width: 100%;}
+    
+  /* ---- Scroll Bar ---- */
+/* width */
+::-webkit-scrollbar {
+width: 0px;
+  display: none;
+}
+/* Track */
+::-webkit-scrollbar-track {
+border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  display: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+border-radius: 0px;
+background:yellow;
+  display: none;
+}}
+
+  .navigation{background: black; color: #aaa; display: block; height: 40px; z-index: 3; width 100vw; padding-top: 20px; margin-top: 0px; text-align: center; }
+.navigation > a{color: #aaa; font-weight: bolder; font-family: 'Roboto', sans-serif;}}
+  .navigation > a:hover{color: white;}
+#nav-a:hover{color: white !important; text-decoration: none;}
+
+
+</style>
+<script src=""></script>
+<body>
+<!-- Website made by Kris Kosta -->
+<!--   <nav> <ul><li><a href="./index">HOME</a></li></ul></nav> -->
+ <div class="navigation"><a href="./index" id="nav-a">HOME</a></div>
+  <section>
+
+  <div class="card-wrapper">
+  <div class="card-inner">
+  <div class="card" id="flipcard">
+ <img src="https://i.imgur.com/jSUB20s.png" draggable="false">
+ <h1>David Ruezga</h1>
+ <h2>Attorney at Law</h2>
+ <h3> GET OUT OF JAIL</h3>
+ <h4> THIS CARD MAY BE KEPT UNTIL NEEDED
+
+</h4>
+    </div>
+   
+    
+  <div class="card-back" id="flipcard">
+<h5 id="h5contact"> Contact Me:</h5>
+    <br> <br>
+    <h5 id="h5address"> San Francisco, California
+</h5>
+   <h5>Call Me: <div class="tooltip"> <a onclick="textcopy()" onmouseout="outFunc()" id="copy" value="415-797-7591" >415-797-7591 </a> <span class="tooltiptext" id="myTooltip"> Click to copy</span></h5> 
+<!--      <h5>Call Me: <a href="tel:415-797-7591">415-797-7591 </a></h5>  -->
+   <h5 id="tooltipEmail">Email Me: <div class="tooltip" > <a onclick="textcopy2()" id="copy2" value="triallawyerssf@gmail.com">triallawyerssf@gmail.com</a><span class="tooltiptext" id="myTooltipEmail"> Click to copy</span></h5>
+<!--      <h5>Email Me: <a href="mailto:triallawyerssf@gmail.com">triallawyerssf@gmail.com</a></h5>  -->
+    
+<a href= "https://codepen.io/kjkosta"> <div class="show"> <div class="h6">
+     This website is built by Kris Kosta https://codepen.io/kjkosta   
+ </div> </div> </a>
+    </div>
+     </div>
+    </section>
+    
+ 
+</body>
+
+<script>
+
+function textcopy(ev){
+  let div = document.getElementById('copy');
+  let text = div.innerText;
+  let textArea  = document.createElement('textarea');
+  textArea.value = text;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand('copy');   //No i18n
+  document.body.removeChild(textArea);
+
+var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied!";
+  
+   var tooltipToggle = document.getElementById("myTooltipEmail");
+  tooltipToggle.innerHTML = "Click to copy";
+}
+
+function textcopy2(ev){
+  let div = document.getElementById('copy2');
+  let text = div.innerText;
+  let textArea  = document.createElement('textarea');
+  textArea.value = text;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand('copy');   //No i18n
+  document.body.removeChild(textArea);
+
+var tooltip = document.getElementById("myTooltipEmail");
+  tooltip.innerHTML = "Copied!";
+  
+  var tooltipToggle = document.getElementById("myTooltip");
+  tooltipToggle.innerHTML = "Click to copy";
+}
+</script>
+</html>
