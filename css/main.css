@@ -318,7 +318,7 @@ width: 0px; display: none;} ::-webkit-scrollbar{width: 0px;}}
 #contact{margin-bottom: 20px;}
 
 
-@media(min-width: 900px){.contact-form{margin-bottom: 40px;}}
+@media(min-width: 900px){.contact-form{margin-bottom: 40px;} video{margin-top: -40px;}}
 
 
 
