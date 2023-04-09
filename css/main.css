@@ -506,3 +506,7 @@ box-shadow: 0 0 5px #0094FF,
             0 0 50px #0094FF,
             0 0 100px #0094FF;}
 
+.body {
+  overflow: hidden !important;
+   display: none;
+}
