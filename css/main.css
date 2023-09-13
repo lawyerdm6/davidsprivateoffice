@@ -496,7 +496,7 @@ nav li:hover, nav a:hover {
   
   width: 98%;
 }
-.contact-form > button:hover{
+/* .contact-form > button:hover{
   
    color: #fff;
   background: #94a4bc;
@@ -504,7 +504,7 @@ nav li:hover, nav a:hover {
 box-shadow: 0 0 5px #0094FF,
             0 0 25px #0094FF,
             0 0 50px #0094FF,
-            0 0 100px #0094FF;}
+            0 0 100px #0094FF;} */
 
 .body {
   overflow: hidden !important;
